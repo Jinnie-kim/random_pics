@@ -1,5 +1,17 @@
+import ImageList from './component/ImageList';
+import SearchBar from './component/SearchBar';
+
 function App() {
-  return <h1>Get Your Random Pics</h1>;
+  return (
+    <>
+      <div>
+        <SearchBar />
+      </div>
+      <div>
+        <ImageList />
+      </div>
+    </>
+  );
 }
 
 export default App;
