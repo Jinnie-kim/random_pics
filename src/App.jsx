@@ -8,7 +8,7 @@ function App() {
 
   const getImageList = async (term) => {
     const result = await searchImageList(term);
-    searchImageList(result);
+    setImageLists(result);
   };
 
   return (

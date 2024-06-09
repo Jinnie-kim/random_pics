@@ -5,7 +5,9 @@ const searchImageList = async (term) => {
     },
   });
 
-  return response.json();
+  const result = await response.json();
+
+  return result.results;
 };
 
 export default searchImageList;
