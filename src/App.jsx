@@ -12,12 +12,13 @@ function App() {
   };
 
   return (
-    <section className="width-[1180px] height-[1080px] mx-auto grid gap-x-[20px] grid-cols-12 grid-rows-12">
-      <h1 className="col-start-2 col-span-2 row-span-2 text-[64px]">Search</h1>
-      <header className="row-start-4 col-start-2 col-span-10 row-span-1">
+    <section className="container m-auto">
+      <h1 className="mt-[90px] text-[64px]">Search</h1>
+      <header className="mt-[40px]">
         <SearchBar onSubmit={getImageList} />
       </header>
-      <main className="row-start-5 col-start-2 col-span-10">
+
+      <main>
         <ImageList imageLists={imageLists} />
       </main>
     </section>

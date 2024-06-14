@@ -5,7 +5,7 @@ function ImageList({ imageLists }) {
     return <ImageCard image={image} key={image.id} />;
   });
 
-  return <div>{renderedImages}</div>;
+  return <ul className="mt-[65px] columns-[200px]">{renderedImages}</ul>;
 }
 
 export default ImageList;
