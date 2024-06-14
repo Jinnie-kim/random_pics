@@ -12,7 +12,7 @@ function App() {
   };
 
   return (
-    <section className="container m-auto">
+    <section className="container m-auto px-3">
       <h1 className="mt-[90px] text-[64px]">Search</h1>
       <header className="mt-[40px]">
         <SearchBar onSubmit={getImageList} />
