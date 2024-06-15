@@ -1,4 +1,12 @@
+import { useState } from 'react';
+
 function ImageCard({ image }) {
+  const [heartClick, setHeartClick] = useState(false);
+
+  const handleHeartBtnClick = () => {
+    setHeartClick(!heartClick);
+  };
+
   return (
     <li className="relative">
       <img src={image.urls.small} alt={image.alt_description} className="rounded-lg mb-[20px]" />
@@ -14,8 +22,15 @@ function ImageCard({ image }) {
             </svg>
           </a>
         </button>
-        <button type="button" className="p-1 bg-white rounded-full">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+        <button type="button" className="p-1 bg-white rounded-full" onClick={handleHeartBtnClick}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill={heartClick ? 'pink' : 'white'}
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
