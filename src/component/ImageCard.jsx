@@ -3,8 +3,17 @@ import { useState } from 'react';
 function ImageCard({ image }) {
   const [heartClick, setHeartClick] = useState(false);
 
-  const handleHeartBtnClick = () => {
+  const addFavoritePics = (url) => {
     setHeartClick(!heartClick);
+
+    // 로컬 스토리지에서 기존의 이미지 배열 가져오기
+    const existedImages = JSON.parse(localStorage.getItem('favPics')) || [];
+
+    // 새 이미지 url을 배열에 추가하기
+    const updatedImages = [...existedImages, url];
+
+    // 업데이트 된 배열을 로컬스토리지에 저장
+    localStorage.setItem('favPics', JSON.stringify(updatedImages));
   };
 
   return (
@@ -22,7 +31,13 @@ function ImageCard({ image }) {
             </svg>
           </a>
         </button>
-        <button type="button" className="p-1 bg-white rounded-full" onClick={handleHeartBtnClick}>
+        <button
+          type="button"
+          className="p-1 bg-white rounded-full"
+          onClick={() => {
+            addFavoritePics(image.urls.small);
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill={heartClick ? 'pink' : 'white'}
