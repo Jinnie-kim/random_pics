@@ -16,6 +16,19 @@ function ImageCard({ image }) {
     localStorage.setItem('favPics', JSON.stringify(updatedImages));
   };
 
+  useState(() => {
+    const favPicsList = JSON.parse(localStorage.getItem('favPics'));
+    const isArchive = favPicsList.find((pic) => {
+      if (pic.urls.small === image.urls.small) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
+    setHeartClick(isArchive);
+  }, [image]);
+
   return (
     <li className="relative">
       <img src={image.urls.small} alt={image.alt_description} className="rounded-lg mb-[20px]" />
@@ -40,7 +53,7 @@ function ImageCard({ image }) {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill={heartClick ? 'pink' : 'white'}
+            fill={heartClick ? 'red' : 'white'}
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
