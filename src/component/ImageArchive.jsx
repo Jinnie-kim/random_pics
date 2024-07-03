@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import SearchBar from './SearchBar';
+import { useEffect, useState } from 'react';
 import ImageList from './ImageList';
 
 function ImageArchive() {
   const [imageLists, setImageLists] = useState([]);
+
+  useEffect(() => {
+    const favPicsList = JSON.parse(localStorage.getItem('favPics'));
+    setImageLists(favPicsList);
+  }, []);
 
   return (
     <section className="container m-auto px-3">
