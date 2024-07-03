@@ -14,9 +14,6 @@ function ImageArchive() {
           <Link to="/">Home🌌</Link>
         </button>
       </div>
-      <header className="mt-[40px]">
-        <SearchBar />
-      </header>
 
       <main>
         <ImageList imageLists={imageLists} />
