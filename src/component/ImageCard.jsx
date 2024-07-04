@@ -17,14 +17,14 @@ function ImageCard({ image }) {
   };
 
   useState(() => {
-    const favPicsList = JSON.parse(localStorage.getItem('favPics'));
-    const isArchive = favPicsList.find((pic) => {
-      if (pic.urls.small === image.urls.small) {
-        return true;
-      } else {
-        return false;
-      }
-    });
+    const favPicsList = JSON.parse(localStorage.getItem('favPics')) || [];
+    let isArchive = false;
+
+    if (favPicsList.length > 0) {
+      isArchive = favPicsList.find((pic) => {
+        return pic.urls.small === image.urls.small ? true : false;
+      });
+    }
 
     setHeartClick(isArchive);
   }, [image]);
