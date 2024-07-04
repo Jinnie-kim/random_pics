@@ -7,7 +7,7 @@ function ImageArchive() {
 
   useEffect(() => {
     const favPicsList = JSON.parse(localStorage.getItem('favPics'));
-    setImageLists(favPicsList);
+    setImageLists(favPicsList || []);
   }, []);
 
   return (
