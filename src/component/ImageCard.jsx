@@ -4,16 +4,27 @@ function ImageCard({ image }) {
   const [heartClick, setHeartClick] = useState(false);
 
   const addFavoritePics = (imageInfo) => {
-    setHeartClick(!heartClick);
+    if (heartClick) {
+      setHeartClick(!heartClick);
+      let existedFavPics = JSON.parse(localStorage.getItem('favPics'));
 
-    // 로컬 스토리지에서 기존의 이미지 배열 가져오기
-    const existedImages = JSON.parse(localStorage.getItem('favPics')) || [];
+      if (existedFavPics) {
+        let editedFavPics = existedFavPics.filter((pic) => pic.id !== imageInfo.id);
+        localStorage.removeItem('favPics');
+        localStorage.setItem('favPics', JSON.stringify([...editedFavPics]));
+      }
+    } else {
+      setHeartClick(!heartClick);
 
-    // 새 이미지 url을 배열에 추가하기
-    const updatedImages = [...existedImages, imageInfo];
+      // 로컬 스토리지에서 기존의 이미지 배열 가져오기
+      const existedImages = JSON.parse(localStorage.getItem('favPics')) || [];
 
-    // 업데이트 된 배열을 로컬스토리지에 저장
-    localStorage.setItem('favPics', JSON.stringify(updatedImages));
+      // 새 이미지 url을 배열에 추가하기
+      const updatedImages = [...existedImages, imageInfo];
+
+      // 업데이트 된 배열을 로컬스토리지에 저장
+      localStorage.setItem('favPics', JSON.stringify(updatedImages));
+    }
   };
 
   useState(() => {
