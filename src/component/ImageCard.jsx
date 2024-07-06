@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function ImageCard({ image }) {
   const [heartClick, setHeartClick] = useState(false);
@@ -27,18 +27,17 @@ function ImageCard({ image }) {
     }
   };
 
-  useState(() => {
-    const favPicsList = JSON.parse(localStorage.getItem('favPics')) || [];
-    let isArchive = false;
+  useEffect(() => {
+    const favPicsLists = JSON.parse(localStorage.getItem('favPics')) || [];
 
-    if (favPicsList.length > 0) {
-      isArchive = favPicsList.find((pic) => {
-        return pic.urls.small === image.urls.small ? true : false;
+    if (favPicsLists.length > 0) {
+      let matchPic = favPicsLists.find((pic) => {
+        return pic.id === image.id;
       });
-    }
 
-    setHeartClick(isArchive);
-  }, [image]);
+      setHeartClick(!!matchPic);
+    }
+  }, []);
 
   return (
     <li className="relative">
