@@ -44,7 +44,7 @@ function ImageCard({ image }) {
 
       setHeartClick(!!matchPic);
     }
-  }, []);
+  }, [image]);
 
   return (
     <li className="relative">
