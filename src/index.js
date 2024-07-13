@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import './index.css';
 import ImageArchive from './component/ImageArchive';
+import { Provider } from './context/favPicLists';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -21,6 +22,8 @@ const router = createBrowserRouter([
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
