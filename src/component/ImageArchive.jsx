@@ -1,14 +1,9 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import useFavPicListsContext from '../hooks/use-favPicLists-context';
 import ImageList from './ImageList';
 
 function ImageArchive() {
-  const [imageLists, setImageLists] = useState([]);
-
-  useEffect(() => {
-    const favPicsList = JSON.parse(localStorage.getItem('favPics'));
-    setImageLists(favPicsList || []);
-  }, []);
+  const { imageLists } = useFavPicListsContext();
 
   return (
     <section className="container m-auto px-3">
