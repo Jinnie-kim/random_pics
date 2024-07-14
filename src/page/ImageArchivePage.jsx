@@ -3,7 +3,12 @@ import Link from '../component/Link';
 import ImageList from '../component/ImageList';
 
 function ImageArchive() {
-  const { imageLists } = useFavPicListsContext();
+  const { imageLists, existFavPicLists } = useFavPicListsContext();
+
+  const resetFavPicLists = () => {
+    localStorage.removeItem('favPics');
+    existFavPicLists();
+  };
 
   return (
     <section className="container m-auto px-3">
@@ -14,7 +19,10 @@ function ImageArchive() {
         </button>
       </div>
 
-      <main>
+      <main className="flex flex-col">
+        <button className="ml-auto border-2 p-1 rounded-xl bg-rose-50 border-rose-500 text-gray-400 hover:text-rose-500 font-medium" onClick={resetFavPicLists}>
+          Reset Archive
+        </button>
         <ImageList imageLists={imageLists} />
       </main>
     </section>
