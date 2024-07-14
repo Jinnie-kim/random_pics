@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import useFavPicListsContext from '../hooks/use-favPicLists-context';
-import ImageList from './ImageList';
+import Link from '../component/Link';
+import ImageList from '../component/ImageList';
 
 function ImageArchive() {
   const { imageLists } = useFavPicListsContext();
