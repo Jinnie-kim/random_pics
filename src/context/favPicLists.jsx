@@ -6,9 +6,13 @@ function Provider({ children }) {
   const [imageLists, setImageLists] = useState([]);
 
   useEffect(() => {
+    existFavPicLists();
+  }, []);
+
+  const existFavPicLists = () => {
     const favPicsList = JSON.parse(localStorage.getItem('favPics'));
     setImageLists(favPicsList || []);
-  }, []);
+  };
 
   const addFavPicLists = (newFavPic) => {
     const newFavPicLists = [...imageLists, newFavPic];
@@ -26,6 +30,7 @@ function Provider({ children }) {
     imageLists,
     addFavPicLists,
     removeFavPicLists,
+    existFavPicLists,
   };
 
   return <FavPicListsContext.Provider value={valueToShare}>{children}</FavPicListsContext.Provider>;
