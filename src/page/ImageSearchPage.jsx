@@ -24,8 +24,10 @@ function ImageSearch() {
         <SearchBar onSubmit={getImageList} />
       </header>
 
-      <main>
-        <ImageList imageLists={imageLists} />
+      <main className="flex flex-col">
+        <>
+          {imageLists.length > 0 ? <ImageList imageLists={imageLists} /> : <h1 className="mx-auto mt-[65px]">Enter a keyword to search for random photos! </h1>}
+        </>
       </main>
     </section>
   );

@@ -23,7 +23,7 @@ function ImageArchive() {
         <button className="ml-auto border-2 p-1 rounded-xl bg-rose-50 border-rose-500 text-gray-400 hover:text-rose-500 font-medium" onClick={resetFavPicLists}>
           Reset Archive
         </button>
-        <ImageList imageLists={imageLists} />
+        <>{imageLists.length > 0 ? <ImageList imageLists={imageLists} /> : <h1 className="mx-auto mt-[65px]">You haven't liked any photos yet!</h1>}</>
       </main>
     </section>
   );
