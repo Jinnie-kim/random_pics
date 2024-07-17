@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import useFavPicListsContext from '../hooks/use-favPicLists-context';
+import Modal from './Modal';
 import { PiHeartLight } from 'react-icons/pi';
 import { FcLike } from 'react-icons/fc';
 import { BsDownload, BsShare } from 'react-icons/bs';
@@ -7,6 +8,7 @@ import { BsDownload, BsShare } from 'react-icons/bs';
 function ImageCard({ image }) {
   const { imageLists, addFavPicLists, removeFavPicLists } = useFavPicListsContext();
   const [heartClick, setHeartClick] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const editFavoritePicLists = (imageInfo) => {
     if (heartClick) {
@@ -20,7 +22,29 @@ function ImageCard({ image }) {
 
   const copyImageUrlClipBoard = (url) => {
     navigator.clipboard.writeText(url);
+    setShowModal(true);
   };
+
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
+
+  const actionBar = (
+    <div className="flex">
+      <button
+        className="mx-auto w-[60px] h-[30px] border-2 rounded-xl bg-rose-50 border-rose-500 text-gray-400 hover:text-rose-500 font-medium"
+        onClick={handleModalClose}
+      >
+        확인
+      </button>
+    </div>
+  );
+
+  const modal = (
+    <Modal actionBar={actionBar}>
+      <h1>이미지 주소가 클립보드에 복사되었습니다.</h1>
+    </Modal>
+  );
 
   useEffect(() => {
     if (imageLists.length > 0) {
@@ -60,6 +84,7 @@ function ImageCard({ image }) {
           {heartClick ? <FcLike /> : <PiHeartLight />}
         </button>
       </div>
+      {showModal && modal}
     </li>
   );
 }
