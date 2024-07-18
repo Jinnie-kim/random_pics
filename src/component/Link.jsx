@@ -1,7 +1,7 @@
-import useNavigation from '../hooks/use-navigation';
+import useNavigationContext from '../hooks/use-navigation-context';
 
 function Link({ to, children }) {
-  const { navigate, currentPath } = useNavigation();
+  const { navigate, currentPath } = useNavigationContext();
 
   const handleClick = (event) => {
     event.preventDefault();
