@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import NavigationContext from '../context/navigation';
 
 function useNavigationContext() {
-  return useContext(NavigationContext);
+    return useContext(NavigationContext);
 }
 
 export default useNavigationContext;

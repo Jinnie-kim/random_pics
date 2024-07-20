@@ -1,13 +1,13 @@
 import useNavigationContext from '../hooks/use-navigation-context';
 
 function Route({ path, children }) {
-  const { currentPath } = useNavigationContext();
+    const { currentPath } = useNavigationContext();
 
-  if (path === currentPath) {
-    return children;
-  }
+    if (path === currentPath) {
+        return children;
+    }
 
-  return null;
+    return null;
 }
 
 export default Route;
