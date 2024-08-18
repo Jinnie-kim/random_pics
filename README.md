@@ -19,10 +19,10 @@ This project started as a basic practice project from a React course, focusing o
 
 ## Key Features
 
-- Search for random images with keyword
-- Archive your favorite images by clicking the heart button
-- Download your favorite images
-- Share your favorite images with your friends
+-   Search for random images with keyword
+-   Archive your favorite images by clicking the heart button
+-   Download your favorite images
+-   Share your favorite images with your friends
 
 ## Description
 
@@ -33,7 +33,7 @@ Among the search results, you can click the heart button to add your favorite im
 
 ## Tech Stack
 
-React, react-router-dom, UnSplash API
+JavaScript, React, Tailwind CSS, UnSplash API
 
 ## How To Use
 
@@ -43,8 +43,8 @@ npm install
 npm start
 ```
 
-- Enter the keyword of the desired image in the search input field.
-- Save favorite images to your Archive by clicking the heart button on the searched images.
-- View all your favorited images on the Archive page.
-- Download any image you want by clicking the download button.
-- Share your favorite images with friends by copying the image URL to the clipboard using the share button.
+-   Enter the keyword of the desired image in the search input field.
+-   Save favorite images to your Archive by clicking the heart button on the searched images.
+-   View all your favorited images on the Archive page.
+-   Download any image you want by clicking the download button.
+-   Share your favorite images with friends by copying the image URL to the clipboard using the share button.
